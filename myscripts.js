@@ -1,13 +1,14 @@
 
+const choices = ['rock', 'paper', 'scissors'];
 
-function computerPlay(arr) {
-    const randomIndex = Math.floor(Math.random() * arr.length);
-    
-    const item = arr[randomIndex];
-
-    return item;
+function computerPlay() {
+    return choices[Math.floor(Math.random() * choices.length)];
 }
 
-const array = ['rock', 'paper', 'scissors'];
-const result = computerPlay(array);
-console.log(result);
+
+function playRound(playerSelection, computerSelection){
+    const capitalize = word => { return word.charAt(0).toUpperCase() + word.slice(1);}
+    const winStatement = (winner, loser) => { return `You Win! ${capitalize(winner)} beats ${capitalize(loser)}`; }
+    
+}
+
