@@ -1,20 +1,30 @@
-const choices = ['rock', 'paper', 'scissors'];
-const beats = {'rock': 'paper', 'paper': 'scissors', 'scissors': 'rock'};
-const upper = {'rock': 'Rock', 'paper': 'Paper', 'scissors': 'Scissors'};
+const choices = ['rock', 'paper', 'scissors']
 
-function computerPlay() {
-    return choices[Math.floor(Math.random() * choices.length)];
+
+
+function game(){
+    playRound();
 }
 
-function playRound(human, computer) {
-    return human === computer
-        ? `Oh! It's a tie`
-        : human === beats[computer]
-        ? `You win! ${upper[human]} beats ${computer}`
-        : `You lose! ${upper[computer]} beats ${human}`;
+
+function playRound(){
+    const playerSelection = playerChoice();
+    const computerSelection = computerChoice();
+
+    
 }
 
-const playerSelection = choices[0];
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+function playerChoice (){
+    let input = prompt('Type rock, paper, or scissors');
+    input = input.toLocaleLowerCase();
+    console.log(input)
 
+}
+
+
+function computerChoice (){
+    return choices[Math.floor(Math.random()*choices.length)]
+
+}
+
+game();
