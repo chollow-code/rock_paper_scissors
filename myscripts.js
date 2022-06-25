@@ -1,14 +1,20 @@
-
 const choices = ['rock', 'paper', 'scissors'];
+const beats = {'rock': 'paper', 'paper': 'scissors', 'scissors': 'rock'};
+const upper = {'rock': 'Rock', 'paper': 'Paper', 'scissors': 'Scissors'};
 
 function computerPlay() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-
-function playRound(playerSelection, computerSelection){
-    const capitalize = word => { return word.charAt(0).toUpperCase() + word.slice(1);}
-    const winStatement = (winner, loser) => { return `You Win! ${capitalize(winner)} beats ${capitalize(loser)}`; }
-    
+function playRound(human, computer) {
+    return human === computer
+        ? `Oh! It's a tie`
+        : human === beats[computer]
+        ? `You win! ${upper[human]} beats ${computer}`
+        : `You lose! ${upper[computer]} beats ${human}`;
 }
+
+const playerSelection = choices[0];
+const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
 
